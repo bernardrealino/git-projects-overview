@@ -68,7 +68,7 @@ class FolderRow(ft.DataRow):
         cells = [
             ft.DataCell(ft.Row([
                 ft.IconButton(
-                    icon=ft.Icons.KEYBOARD_ARROW_RIGHT,
+                    icon=ft.icons.KEYBOARD_ARROW_RIGHT,
                     icon_color="grey",
                     visible=info.get("has_subfolders", True),
                     on_click=lambda e: self.rescan_callback(info, self),
@@ -86,17 +86,17 @@ class FolderRow(ft.DataRow):
                 ft.Row(
                     [
                         ft.IconButton(
-                            icon=ft.Icons.REFRESH,
+                            icon=ft.icons.REFRESH,
                             tooltip="Rescan",
                             on_click=lambda e: self.rescan_callback(info, self),
                         ),
                         ft.IconButton(
-                            icon=ft.Icons.FOLDER,
+                            icon=ft.icons.FOLDER,
                             tooltip="Open in Explorer",
                             on_click=lambda e: open_in_explorer(info["path"]),
                         ),
                         ft.IconButton(
-                            icon=ft.Icons.CODE,
+                            icon=ft.icons.CODE,
                             tooltip="Open in VS Code",
                             on_click=lambda e: open_in_vscode(info["path"]),
                         ),
@@ -117,8 +117,8 @@ def main(page: ft.Page):
     page.scroll = "auto"
 
     root_input = ft.TextField(label="Root Folder", width=500, value="D:\\Projects")
-    pick_button = ft.IconButton(icon=ft.Icons.FOLDER_OPEN)
-    scan_button = ft.ElevatedButton("Scan Projects", icon=ft.Icons.SEARCH)
+    pick_button = ft.IconButton(icon=ft.icons.FOLDER_OPEN)
+    scan_button = ft.ElevatedButton("Scan Projects", icon=ft.icons.SEARCH)
     progress = ft.ProgressBar(width=400, visible=False)
     status = ft.Text("")
 
@@ -147,7 +147,7 @@ def main(page: ft.Page):
             ft.DataColumn(ft.Text("Actions")),
         ],
         rows=[],
-        heading_row_color=ft.Colors.with_opacity(0.1, ft.Colors.WHITE),
+        heading_row_color=ft.colors.with_opacity(0.1, ft.colors.WHITE),
         column_spacing=30,
         data_row_min_height=40,
     )
